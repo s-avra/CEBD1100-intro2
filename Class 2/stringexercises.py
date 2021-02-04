@@ -8,8 +8,6 @@ repeat = 15
 print("Welcome, \"" + first +" "+ last + "\".")
 print("Welcome, \"{0} {1}\".".format(first,last))
 
-import decimal
-
 #print "The salary is $20080.45".
 print("The salary is " + "${:.2f}".format(salary))
 
@@ -24,3 +22,5 @@ print(ultra_long[0:10])
 print(ultra_long[-3])
 print(ultra_long[-3:])
 print(ultra_long[:-3])
+print(ultra_long[3:])
+print(ultra_long[:3])
