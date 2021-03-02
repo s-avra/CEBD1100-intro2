@@ -8,7 +8,7 @@ def is_an_int(n):
     except:
         return False
 while True:
-    main_menu = "Please select an option below:\n1 - Draw a Triangle\nQ - Quit"
+    main_menu = "Select an option below:\n1 - Draw a Triangle\nQ - Quit"
     print(main_menu)
     main_choice = input("Which option would you like? ").upper()
     if main_choice == "1":
@@ -18,6 +18,7 @@ while True:
             menu2 = "\nChoose which triangle you would like to draw:\n1 - Right sided triangle\n2 - Isosceles triangle\nQ - Back to main menu"
             print(menu2)
             menu2_choice = input("Which option would you like? ").upper()
+            # Right sided triangle
             if menu2_choice == "1":
                 while True:
                     right_prompt = input("\nWhat size would you like your right sided triangle? ")
@@ -37,6 +38,7 @@ while True:
                 else:
                     print()
                     break
+            # Isosceles triangle
             if menu2_choice == "2":
                 while True:
                     iso_prompt=input("\nWhat size would you like your isosceles triangle? ")
@@ -72,4 +74,4 @@ while True:
         print("Goodbye!")
         break
     else:
-        print("Please enter one of the listed options!")
+        print("Please enter one of the listed options.\n")
