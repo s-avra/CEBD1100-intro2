@@ -1,6 +1,12 @@
 # main menu
 goodbye_menu2 = "Thanks for drawing triangles! Goodbye."
 print("Welcome!")
+def is_an_int(n):
+    try:
+        n= int(n)
+        return True
+    except:
+        return False
 while True:
     main_menu = "Please select an option below:\n1 - Draw a Triangle\nQ - Quit"
     print(main_menu)
@@ -13,42 +19,53 @@ while True:
             print(menu2)
             menu2_choice = input("Which option would you like? ").upper()
             if menu2_choice == "1":
-                right_size = int(input("\nWhat size would you like your right sided triangle? "))
-                for x in range(1, right_size+1):
-                    print("#"*x)
-                try_again =input("I hope you like your triangle! Enter \"A\" if you would like to try again.\nEnter anything else to go back to the main menu. ").upper().strip()
-                if try_again == "A":
-                    continue
-                else:
-                    print()
+                while True:
+                    right_prompt = input("\nWhat size would you like your right sided triangle? ")
+                    if is_an_int(right_prompt) == False:
+                        print("Please enter an integer")
+                        continue
+                    right_size=abs(int(right_prompt))
+                    for x in range(1, right_size+1):
+                        print("#"*x)
+                    try_again =input("I hope you like your triangle! Enter \"A\" if you would like to try again.\nEnter anything else to go back to the main menu. ").upper().strip()
+                    if try_again == "A":
+                        continue
+                    else:
+                        print()
                     break
             if menu2_choice == "2":
                 while True:
-                    iso_size=input("\nWhat size would you like your isosceles triangle? ")
-                    i
+                    iso_prompt=input("\nWhat size would you like your isosceles triangle? ")
+                    if is_an_int(iso_prompt) == False:
+                        print("Please enter an odd integer.")
+                        continue
+                    iso_size=abs(int(iso_prompt))
+                    if iso_size ==0:
+                        print("Please enter a non-zero odd integer.")
+                        continue
                     if iso_size%2 == 0:
                         print("Please enter an odd integer.")
                         continue
-                    elif iso_size%2 ==1:
+                    elif iso_size%2 ==1 and iso_size>0:
                         for z in range(1,iso_size+1,2):
                             print(int(((iso_size-z)/2))*" ", end = "")
                             print(z*"#", end = "")
                             print(int(((iso_size - z) / 2)) * " ")
-                        try_again = input("I hope you like your triangle! Enter \"A\" if you would like to try again.\nEnter anything else to go back to the main menu. ").upper().strip()
-                        if try_again == "A":
-                            continue
-                        else:
-                            print()
-                            break
+                    try_again = input("I hope you like your triangle! Enter \"A\" if you would like to try again.\nEnter anything else to go back to the main menu. ").upper().strip()
+                    if try_again == "A":
+                        break
+                    else:
+                        print()
+                        break
                 break
             if menu2_choice == "Q":
                 print()
                 break
             else:
-                print("Sorry!\nThat option is not available, please enter one of the listed options.")
+                print("Please enter one of the listed options!")
         continue
     if main_choice == "Q":
         print("Goodbye!")
         break
     else:
-        print("Sorry, try again")
+        print("Please enter one of the listed options!")
