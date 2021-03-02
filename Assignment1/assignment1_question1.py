@@ -16,18 +16,30 @@ while True:
                 right_size = int(input("\nWhat size would you like your right sided triangle? "))
                 for x in range(1, right_size+1):
                     print("#"*x)
-                try_again =input("I hope you like your triangle! Press \"A\" if you would like to try again.\nPress anything else to go back to the main menu. ").upper().strip()
+                try_again =input("I hope you like your triangle! Enter \"A\" if you would like to try again.\nEnter anything else to go back to the main menu. ").upper().strip()
                 if try_again == "A":
                     continue
                 else:
                     print()
                     break
             if menu2_choice == "2":
-                iso_size=int(input("\nWhat size would you like your isosceles triangle? "))
-                for z in range(1,iso_size+1,2):
-                    print(int(((iso_size-z)/2))*" ", end = "")
-                    print(z*"#", end = "")
-                    print(int(((iso_size - z) / 2)) * " ")
+                while True:
+                    iso_size=input("\nWhat size would you like your isosceles triangle? ")
+                    i
+                    if iso_size%2 == 0:
+                        print("Please enter an odd integer.")
+                        continue
+                    elif iso_size%2 ==1:
+                        for z in range(1,iso_size+1,2):
+                            print(int(((iso_size-z)/2))*" ", end = "")
+                            print(z*"#", end = "")
+                            print(int(((iso_size - z) / 2)) * " ")
+                        try_again = input("I hope you like your triangle! Enter \"A\" if you would like to try again.\nEnter anything else to go back to the main menu. ").upper().strip()
+                        if try_again == "A":
+                            continue
+                        else:
+                            print()
+                            break
                 break
             if menu2_choice == "Q":
                 print()
