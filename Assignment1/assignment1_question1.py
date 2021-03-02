@@ -22,16 +22,20 @@ while True:
                 while True:
                     right_prompt = input("\nWhat size would you like your right sided triangle? ")
                     if is_an_int(right_prompt) == False:
-                        print("Please enter an integer")
+                        print("Please enter an integer.")
                         continue
                     right_size=abs(int(right_prompt))
+                    if right_size == 0:
+                        print("Please enter a non-zero integer.")
+                        continue
                     for x in range(1, right_size+1):
                         print("#"*x)
-                    try_again =input("I hope you like your triangle! Enter \"A\" if you would like to try again.\nEnter anything else to go back to the main menu. ").upper().strip()
-                    if try_again == "A":
-                        continue
-                    else:
-                        print()
+                    break
+                try_again =input("I hope you like your triangle! Enter \"A\" if you would like to try again.\nEnter anything else to go back to the main menu. ").upper().strip()
+                if try_again == "A":
+                    continue
+                else:
+                    print()
                     break
             if menu2_choice == "2":
                 while True:
@@ -51,13 +55,13 @@ while True:
                             print(int(((iso_size-z)/2))*" ", end = "")
                             print(z*"#", end = "")
                             print(int(((iso_size - z) / 2)) * " ")
-                    try_again = input("I hope you like your triangle! Enter \"A\" if you would like to try again.\nEnter anything else to go back to the main menu. ").upper().strip()
-                    if try_again == "A":
-                        break
-                    else:
-                        print()
-                        break
-                break
+                    break
+                try_again = input("I hope you like your triangle! Enter \"A\" if you would like to try again.\nEnter anything else to go back to the main menu. ").upper().strip()
+                if try_again == "A":
+                    continue
+                else:
+                    print()
+                    break
             if menu2_choice == "Q":
                 print()
                 break
