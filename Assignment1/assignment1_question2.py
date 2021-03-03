@@ -4,16 +4,23 @@ def is_an_int(num):
         return True
     except:
         return False
-table_size = input("What size multiplication table would you like?")
-
-print((int((int(table_size)+4)/2))*" " + "Multiplication Table"+int((int(table_size)+4)/2)*" ")
+table_size = input("What size multiplication table would you like? ")
 table_int=int(table_size)
-print((4)*" ",end= "")
+# title
+print((int(((table_int*2)+5)/2))*" " + "Multiplication Table"+int(((table_int*2)+5)/2)*" ")
+#"multiplication table" has 19 letters
+# top row
+print((6)*" ",end= "")
 for a in range(1,table_int+1):
-    print("{0:2}  ".format(a), end="")
-print("\n"+"_"*(4+(table_int*4)), end="")
+    print("{0:3}  ".format(a), end="")
+# separating line
+print("\n"+"_"*6 +"_"*(table_int*6), end="")
+#remaining rows
 for b in range(1, table_int+1):
     print("\n")
-    print(str(b) + " |  ", end="")
+    print("{0:3}".format(str(b)) + "|  ", end="")
     for c in range(1,table_int+1):
-        print("{0:4}".format(str(b*c)), end="")
+        print("{0:6}".format(str(b*c)), end="")
+#add "sorry that integer exceeds the table size, please try again with a smaller integer
+# add in exception protection
+#add in number shift for number row title?
