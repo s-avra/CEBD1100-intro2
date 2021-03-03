@@ -7,12 +7,12 @@ def is_an_int(num):
 table_size = input("What size multiplication table would you like? ")
 table_int=int(table_size)
 # title
-print((int(((table_int*2)+5)/2))*" " + "Multiplication Table"+int(((table_int*2)+5)/2)*" ")
+print((int(((table_int*6)+6)/2)-10)*" " + "Multiplication Table"+(int(((table_int*6)+6)/2)-9)*" ")
 #"multiplication table" has 19 letters
 # top row
 print((6)*" ",end= "")
 for a in range(1,table_int+1):
-    print("{0:3}  ".format(a), end="")
+    print("{0:4}  ".format(a), end="")
 # separating line
 print("\n"+"_"*6 +"_"*(table_int*6), end="")
 #remaining rows

@@ -68,7 +68,7 @@ while True:
                 print()
                 break
             else:
-                print("Please enter one of the listed options!")
+                print("Please enter one of the listed options.")
         continue
     if main_choice == "Q":
         print("Goodbye!")
