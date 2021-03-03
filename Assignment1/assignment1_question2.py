@@ -5,7 +5,7 @@ def is_an_int(num):
     except:
         return False
 
-
+# exception capturing
 while True:
     table_size = input("What size multiplication table would you like printed? ")
     if is_an_int(table_size) == False:
@@ -18,6 +18,7 @@ while True:
         elif len(str(table_int*table_int))>5:
             print("Sorry, that exceeds the size of the table. Please enter a smaller number.")
             continue
+        # table output
         else:
             # title
             print((int(((table_int*6)+6)/2)-10)*" " + "Multiplication Table"+(int(((table_int*6)+6)/2)-9)*" ")
