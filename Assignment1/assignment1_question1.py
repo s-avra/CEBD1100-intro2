@@ -10,16 +10,16 @@ def is_an_int(n):
 while True:
     main_menu = "Select an option below:\n1 - Draw a Triangle\nQ - Quit"
     print(main_menu)
-    main_choice = input("Which option would you like? ").upper()
-    if main_choice == "1":
+    main_choice = input("Which option would you like? ").upper().strip()
+    if main_choice[0] == "1":
         print("\nGood choice!")
         # menu 2
         while True:
             menu2 = "\nChoose which triangle you would like to draw:\n1 - Right sided triangle\n2 - Isosceles triangle\nQ - Back to main menu"
             print(menu2)
-            menu2_choice = input("Which option would you like? ").upper()
+            menu2_choice = input("Which option would you like? ").upper().strip()
             # Right sided triangle
-            if menu2_choice == "1":
+            if menu2_choice[0] == "1":
                 while True:
                     right_prompt = input("\nWhat size would you like your right sided triangle? ")
                     if is_an_int(right_prompt) == False:
@@ -39,7 +39,7 @@ while True:
                     print()
                     break
             # Isosceles triangle
-            if menu2_choice == "2":
+            if menu2_choice[0] == "2":
                 while True:
                     iso_prompt=input("\nWhat size would you like your isosceles triangle? ")
                     if is_an_int(iso_prompt) == False:
@@ -59,18 +59,18 @@ while True:
                             print(int(((iso_size - z) / 2)) * " ")
                     break
                 try_again = input("I hope you like your triangle! Enter \"A\" if you would like to try again.\nEnter anything else to go back to the main menu. ").upper().strip()
-                if try_again == "A":
+                if try_again[0] == "A":
                     continue
                 else:
                     print()
                     break
-            if menu2_choice == "Q":
+            if menu2_choice[0] == "Q":
                 print()
                 break
             else:
                 print("Please enter one of the listed options.")
         continue
-    if main_choice == "Q":
+    if main_choice[0] == "Q":
         print("Goodbye!")
         break
     else:
