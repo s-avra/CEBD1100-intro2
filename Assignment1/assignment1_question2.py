@@ -12,7 +12,7 @@ print((int(((table_int*6)+6)/2)-10)*" " + "Multiplication Table"+(int(((table_in
 # top row
 print((6)*" ",end= "")
 for a in range(1,table_int+1):
-    print("{0:4}  ".format(a), end="")
+    print("{0:6}".format(str(a)), end="")
 # separating line
 print("\n"+"_"*6 +"_"*(table_int*6), end="")
 #remaining rows
