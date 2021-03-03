@@ -16,7 +16,7 @@ while True:
             print("Please enter a positive, non-zero integer.")
             continue
         elif len(str(table_int*table_int))>5:
-            print("Sorry, that exceeds the size of the table. Please enter a smaller number.")
+            print("Sorry, that exceeds the table capacity. Please enter a smaller number.")
             continue
         # table output
         else:
@@ -36,4 +36,3 @@ while True:
                 for c in range(1,table_int+1):
                     print("{0:6}".format(str(b*c)), end="")
             break
-#can you make the size flexible?
