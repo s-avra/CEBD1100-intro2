@@ -1,4 +1,4 @@
-from account_types.main_account import Account
+from Assignment2.account_types.main_account import Account
 class SavingsAccount(Account):
     def withdraw(self,amount):
         if self.balance < 25:

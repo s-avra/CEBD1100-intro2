@@ -1,4 +1,4 @@
-from account_types.main_account import Account
+from Assignment2.account_types.main_account import Account
 class CheckingAccount(Account):
     def withdraw(self,amount):
         if self.balance - amount <0:
@@ -12,3 +12,4 @@ chkgacct1 = CheckingAccount(10,.04)
 print(str(chkgacct1.balance) + " " + str(chkgacct1.interest_rate))
 chkgacct1.deposit(30)
 print(chkgacct1.balance_total())
+print(chkgacct1.doMonthlyReport())

@@ -1,6 +1,6 @@
 from babel.numbers import format_currency
-from account_types.savings_acct import SavingsAccount
-from account_types.checking_acct import CheckingAccount
+from Assignment2.account_types.savings_acct import SavingsAccount
+from Assignment2.account_types.checking_acct import CheckingAccount
 
 def is_an_int(n):
     try:
@@ -58,10 +58,10 @@ while True:
                         print("Please enter a postitive, non-zero integer.")
                         continue
                     else:
-                        checkingaccount1.deposit(deposit_size)
+                        savingsacct1.deposit(deposit_size)
                         print(format_currency(deposit_size,'USD',locale = 'en_US') + " was deposited successfully.")
                     break
-                print("Thank you for banking with us today. ")
+                print("Thank you for banking with us today.\n")
                 break
             # Withdraw
             if savings_choice[0] == "B":
@@ -75,12 +75,13 @@ while True:
                         print("Please enter a positive, non-zero integer.")
                         continue
                     else:
-                        print("X successfully withdrawn")
+                        savingsacct1.withdraw(withdraw_size)
+                        print(format_currency(withdraw_size,'USD', locale= 'en_US')+" was successfully withdrawn")
                     break
-                print("Thank you for banking with us today. ")
+                print("Thank you for banking with us today.\n")
                 break
             if savings_choice[0] == "C":
-                print("Report")
+                print(savingsacct1.doMonthlyReport())
                 break
             if savings_choice[0] == "D":
                 break

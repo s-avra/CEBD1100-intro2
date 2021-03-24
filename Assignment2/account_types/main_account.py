@@ -28,10 +28,18 @@ class Account:
             self.balance = self.balance + amount
             self.deposit_count += 1
             self.deposit_total += amount
+    def service_charges(self,amount):
+        self.service_charge += amount
+        self.balance -= amount
 
     def balance_total(self):
         return self.calculate_interest()+self.balance
 
     def doMonthlyReport(self):
-        return
-        print("report")
+        print("Account Status: " + str( self.account_active))
+        print("Starting Balance: " + str(self.starting_balance))
+        print("Total Deposits: " + str(self.deposit_total))
+        print("Total Withdrawals: " + str(self.withdraw_total))
+        print("Service Charges: " + str(self.service_charge))
+        print("Interest Generated: " + str(self.calculate_interest()))
+        print("Current Balance: " + str(self.balance_total()))
