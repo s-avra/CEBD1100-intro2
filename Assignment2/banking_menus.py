@@ -15,7 +15,7 @@ while True:
     if is_an_int(checking_acct_creation) == False:
         print("Please enter an integer.")
         continue
-    if int(checking_acct_creation) <= 10:
+    if int(checking_acct_creation) < 10:
         print("Minimum deposit of $10.00 required.")
         continue
     else:
@@ -28,7 +28,7 @@ while True:
     if is_an_int(savings_acct_creation) == False:
         print("Please enter an integer.")
         continue
-    if int(savings_acct_creation) <= 25:
+    if int(savings_acct_creation) < 25:
         print("Minimum deposit of $25.00 required.")
         continue
     else:
@@ -59,7 +59,6 @@ while True:
                         continue
                     else:
                         savingsacct1.deposit(deposit_size)
-                        print(format_currency(deposit_size,'USD',locale = 'en_US') + " was deposited successfully.")
                     break
                 print("Thank you for banking with us today.\n")
                 break
@@ -76,14 +75,16 @@ while True:
                         continue
                     else:
                         savingsacct1.withdraw(withdraw_size)
-                        print(format_currency(withdraw_size,'USD', locale= 'en_US')+" was successfully withdrawn")
                     break
                 print("Thank you for banking with us today.\n")
                 break
             if savings_choice[0] == "C":
-                print(savingsacct1.doMonthlyReport())
+                print()
+                savingsacct1.doMonthlyReport()
+                print("Thank you for banking with us today.\n")
                 break
             if savings_choice[0] == "D":
+                print()
                 break
             else:
                 print("Please enter one of the listed options.")
@@ -106,9 +107,10 @@ while True:
                         print("Please enter a postitive, non-zero integer.")
                         continue
                     else:
-                        print("X was deposited successfully.")
+                        savingsacct1.deposit(deposit_size)
+                        print(format_currency(deposit_size, 'USD', locale='en_US') + " was deposited successfully.")
                     break
-                print("Thank you for banking with us today. ")
+                print("Thank you for banking with us today.\n")
                 break
             # Withdraw
             if checking_choice[0] == "B":
@@ -122,14 +124,17 @@ while True:
                         print("Please enter a positive, non-zero integer.")
                         continue
                     else:
-                        print("X successfully withdrawn")
+                        checkingaccount1.withdraw(withdraw_size)
                     break
-                print("Thank you for banking with us today. ")
+                print("Thank you for banking with us today.\n")
                 break
             if checking_choice[0] == "C":
-                print("Report")
+                print()
+                checkingaccount1.doMonthlyReport()
+                print("Thank you for banking with us today.\n")
                 break
             if checking_choice[0] == "D":
+                print()
                 break
             else:
                 print("Please enter one of the listed options.")
