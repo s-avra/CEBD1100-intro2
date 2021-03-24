@@ -1,4 +1,6 @@
-from AccountTypes import Account
+from babel.numbers import format_currency
+from account_types.savings_acct import SavingsAccount
+from account_types.checking_acct import CheckingAccount
 
 def is_an_int(n):
     try:
@@ -6,17 +8,34 @@ def is_an_int(n):
         return True
     except:
         return False
-print("Welcome.")
+print("Welcome.\n")
+print("Please create a checking account.\nMinimum deposit is $10.00")
 while True:
-checking_accnt_open_deposit = input("Please create a checking account.\nMinimum deposit to open an account is $10.00.\nHow much would you like to deposit?" )
-    if is_an_int(checking_accnt_open_deposit) == False:
+    checking_acct_creation = input("How much would you like to deposit? ")
+    if is_an_int(checking_acct_creation) == False:
         print("Please enter an integer.")
         continue
-    if int(checking_accnt_open_deposit) <= 10:
+    if int(checking_acct_creation) <= 10:
         print("Minimum deposit of $10.00 required.")
         continue
     else:
-
+        checkingaccount1= CheckingAccount(int(checking_acct_creation),0)
+        print("Your checking account has been successfully created.")
+        break
+print("\nPlease create a savings account.\nMinimum deposit is $25.00, annual interest rate is 3%.")
+while True:
+    savings_acct_creation = input("How much would you like to deposit? ")
+    if is_an_int(savings_acct_creation) == False:
+        print("Please enter an integer.")
+        continue
+    if int(savings_acct_creation) <= 25:
+        print("Minimum deposit of $25.00 required.")
+        continue
+    else:
+        savingsacct1 = SavingsAccount(int(savings_acct_creation),0.03)
+        print("Your savings account has been successfully created.")
+        break
+print()
 while True:
     bank_menu = "Bank Menu:\nA: Savings\nB: Checking\nC: Exit"
     print(bank_menu)
@@ -39,7 +58,8 @@ while True:
                         print("Please enter a postitive, non-zero integer.")
                         continue
                     else:
-                        print("X was deposited successfully.")
+                        checkingaccount1.deposit(deposit_size)
+                        print(format_currency(deposit_size,'USD',locale = 'en_US') + " was deposited successfully.")
                     break
                 print("Thank you for banking with us today. ")
                 break
