@@ -3,14 +3,14 @@ from Assignment2.account_types.main_account import Account
 class CheckingAccount(Account):
     def withdraw(self,amount):
         if self.balance - amount <0:
-            print("Cannot withdraw, insufficient funds")
+            print("Cannot withdraw; Insufficient funds")
             self.balance = self.balance-15
         else:
             super().withdraw(amount)
-            print(format_currency(amount, 'USD', locale='en_US') + " was successfully withdrawn")
+            print(format_currency(amount, 'USD', locale='en_US') + " was successfully withdrawn.")
     def deposit(self, amount):
         super().deposit(amount)
-        print(format_currency(amount, 'USD', locale='en_US') + " was successfully deposited")
+        print(format_currency(amount, 'USD', locale='en_US') + " was successfully deposited.")
     def service_charges(self,amount):
         super().service_charges(amount)
 
@@ -28,7 +28,10 @@ chkgacct1.withdraw(5)
 chkgacct1.withdraw(5)
 chkgacct1.withdraw(5)
 chkgacct1.withdraw(5)
-chkgacct1.service_charges()
 
-chkgacct1.service_charge(5)
+
+chkgacct1.service_charges(5)
+withdraw_fee = int(str(chkgacct1.withdraw_count))*0.1
+chkgacct1.service_charges(withdraw_fee)
+
 chkgacct1.doMonthlyReport()

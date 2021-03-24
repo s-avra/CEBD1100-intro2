@@ -21,6 +21,11 @@ while True:
     else:
         checkingaccount1= CheckingAccount(int(checking_acct_creation),0)
         print("Your checking account has been successfully created.")
+        #service charge setup
+        flat_fee = 5
+        checkingaccount1.service_charges(flat_fee)
+        withdraw_fee = int(str(checkingaccount1.withdraw_count))*0.1
+        checkingaccount1.service_charges(withdraw_fee)
         break
 print("\nPlease create a savings account.\nMinimum deposit is $25.00, annual interest rate is 3%.")
 while True:
@@ -33,6 +38,13 @@ while True:
         continue
     else:
         savingsacct1 = SavingsAccount(int(savings_acct_creation),0.03)
+        #service charge setup
+        svg_withdraw_num=int(savingsacct1.withdraw_count)
+        if svg_withdraw_num > 4:
+            savings_fee = (svg_withdraw_num-4)*1
+        else:
+            savings_fee= 0
+        savingsacct1.service_charges(savings_fee)
         print("Your savings account has been successfully created.")
         break
 print()
@@ -46,7 +58,7 @@ while True:
             savings_menu = "Savings Menu\nA: Deposit\nB: Withrawal\nC: Report\nD: Return to Bank Menu"
             print(savings_menu)
             savings_choice = input("Which option would you like? ").upper().strip()
-            # Deposit
+            # Savings Deposit
             if savings_choice[0] == "A":
                 while True:
                     deposit_prompt = input("\nHow much would you like to deposit? ")
@@ -62,7 +74,7 @@ while True:
                     break
                 print("Thank you for banking with us today.\n")
                 break
-            # Withdraw
+            # Savings Withdraw
             if savings_choice[0] == "B":
                 while True:
                     withdraw_prompt=input("\nHow much would you like to withdraw? ")
@@ -78,11 +90,13 @@ while True:
                     break
                 print("Thank you for banking with us today.\n")
                 break
+            #Savings Report
             if savings_choice[0] == "C":
                 print()
                 savingsacct1.doMonthlyReport()
                 print("Thank you for banking with us today.\n")
                 break
+            #Back to Main
             if savings_choice[0] == "D":
                 print()
                 break
@@ -95,7 +109,7 @@ while True:
             checking_menu = "Savings Menu\nA: Deposit\nB: Withrawal\nC: Report\nD: Return to Bank Menu"
             print(checking_menu)
             checking_choice = input("Which option would you like? ").upper().strip()
-            # Deposit
+            #Checking Deposit
             if checking_choice[0] == "A":
                 while True:
                     deposit_prompt = input("\nHow much would you like to deposit? ")
@@ -107,8 +121,7 @@ while True:
                         print("Please enter a postitive, non-zero integer.")
                         continue
                     else:
-                        savingsacct1.deposit(deposit_size)
-                        print(format_currency(deposit_size, 'USD', locale='en_US') + " was deposited successfully.")
+                        checkingaccount1.deposit(deposit_size)
                     break
                 print("Thank you for banking with us today.\n")
                 break
@@ -128,11 +141,13 @@ while True:
                     break
                 print("Thank you for banking with us today.\n")
                 break
+            #Checking Report
             if checking_choice[0] == "C":
                 print()
                 checkingaccount1.doMonthlyReport()
                 print("Thank you for banking with us today.\n")
                 break
+            #Back to main
             if checking_choice[0] == "D":
                 print()
                 break

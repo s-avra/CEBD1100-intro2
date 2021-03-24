@@ -6,7 +6,7 @@ class SavingsAccount(Account):
             self.account_active == False
             print("Account is inactive; minimum balance required is $25.00. ")
         elif (self.balance - amount) < 0:
-            print("Insufficent funds.")
+            print("Cannot withdraw; Insufficent funds.")
         else:
             super().withdraw(amount)
             print(format_currency(amount, 'USD', locale='en_US') + " was successfully withdrawn.")
@@ -18,6 +18,15 @@ class SavingsAccount(Account):
             super().deposit(amount)
             self.account_active == False
         print(format_currency(amount, 'USD', locale='en_US') + " was successfully deposited.")
+    def service_charges(self,amount):
+        super().service_charges(amount)
+    def account_active(self):
+        if self.balance < 25:
+            self.account_status == False
+        else:
+            self.account_status == True
+
+
 
 svgacct1=SavingsAccount(30,0.5)
 print(str(svgacct1.balance_total())+" "+str(svgacct1.starting_balance))

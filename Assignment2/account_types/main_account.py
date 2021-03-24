@@ -10,7 +10,7 @@ class Account:
         self.withdraw_total= 0
         self.interest_rate = interest_rate
         self.service_charge = 0
-        self.account_active = True
+        self.account_status = True
     def calculate_interest(self):
         return (self.interest_rate/12)*self.balance
 
@@ -29,10 +29,10 @@ class Account:
 
     def service_charges(self,amount):
         self.service_charge += amount
-        self.balance -= self.service_charge
+        self.balance =self.balance - amount
 
     def doMonthlyReport(self):
-        if self.account_active == True:
+        if self.account_status == True:
            print("Account Status: Active")
         else:
            print("Account Status: Inactive")
