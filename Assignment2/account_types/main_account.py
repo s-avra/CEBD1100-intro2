@@ -1,3 +1,4 @@
+from babel.numbers import format_currency
 class Account:
 
     def __init__(self, balance, interest_rate):
@@ -14,37 +15,32 @@ class Account:
         return (self.interest_rate/12)*self.balance
 
     def withdraw(self, amount):
-        if amount < 0:
-            print("Cannot withdraw negative amount.")
-        else:
-            self.balance = self.balance - amount
-            self.withdraw_count += 1
-            self.withdraw_total += amount
+        self.balance = self.balance - amount
+        self.withdraw_count += 1
+        self.withdraw_total += amount
 
     def deposit(self, amount):
-        if amount <0:
-            print("Cannot deposit negative amount.")
-        else:
-            self.balance = self.balance + amount
-            self.deposit_count += 1
-            self.deposit_total += amount
+        self.balance = self.balance + amount
+        self.deposit_count += 1
+        self.deposit_total += amount
 
     def balance_total(self):
         return self.calculate_interest()+self.balance
 
     def service_charges(self,amount):
-        return self.service_charge + amount
+        self.service_charge += amount
+        self.balance -= self.service_charge
 
     def doMonthlyReport(self):
         if self.account_active == True:
            print("Account Status: Active")
         else:
            print("Account Status: Inactive")
-        print("Starting Balance: " + str(self.starting_balance))
-        print("Total Deposits: " + str(self.deposit_total))
+        print("Starting Balance: " + format_currency(self.starting_balance,'USD',locale= 'en_US'))
+        print("Total Deposits: " + format_currency(self.deposit_total,'USD', locale= 'en_US'))
         print("Total Number of Deposits: " + str(self.deposit_count))
-        print("Total Withdrawals: " + str(self.withdraw_total))
+        print("Total Withdrawals: " + format_currency(self.withdraw_total,'USD', locale= 'en_US'))
         print("Total Number of Withdrawals: " + str(self.withdraw_count))
-        print("Service Charges: " + str(self.service_charge))
-        print("Interest Generated: " + str(self.calculate_interest()))
-        print("Current Balance: " + str(self.balance_total()))
+        print("Service Charges: " + format_currency(self.service_charge,'USD', locale= 'en_US'))
+        print("Interest Generated: " + format_currency(self.calculate_interest(),'USD',locale='en_US'))
+        print("Current Balance: " + format_currency(self.balance_total(),'USD',locale='en_US'))

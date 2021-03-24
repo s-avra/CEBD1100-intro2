@@ -12,8 +12,8 @@ class CheckingAccount(Account):
         super().deposit(amount)
         print(format_currency(amount, 'USD', locale='en_US') + " was successfully deposited")
     def service_charges(self,amount):
-        super().service_charges(5)
-        super().service_charges(.10*self.withdraw_count)
+        super().service_charges(amount)
+
 
 
 chkgacct1 = CheckingAccount(10,.04)
@@ -28,4 +28,7 @@ chkgacct1.withdraw(5)
 chkgacct1.withdraw(5)
 chkgacct1.withdraw(5)
 chkgacct1.withdraw(5)
+chkgacct1.service_charges()
+
+chkgacct1.service_charge(5)
 chkgacct1.doMonthlyReport()
