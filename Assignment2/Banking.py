@@ -59,7 +59,7 @@ while True:
         # Checking Menu
         while True:
             checking_menu = "Savings Menu\nA: Deposit\nB: Withrawal\nC: Report\nD: Return to Bank Menu"
-            print(savings_menu)
+            print(checking_menu)
             checking_choice = input("Which option would you like? ").upper().strip()
             # Deposit
             if checking_choice[0] == "A":
@@ -78,7 +78,7 @@ while True:
                 print("Thank you for banking with us today. ")
                 break
             # Withdraw
-            if savings_choice[0] == "B":
+            if checking_choice[0] == "B":
                 while True:
                     withdraw_prompt = input("\nHow much would you like to withdraw? ")
                     if is_an_int(withdraw_prompt) == False:
@@ -93,10 +93,10 @@ while True:
                     break
                 print("Thank you for banking with us today. ")
                 break
-            if savings_choice[0] == "C":
+            if checking_choice[0] == "C":
                 print("Report")
                 break
-            if savings_choice[0] == "D":
+            if checking_choice[0] == "D":
                 break
             else:
                 print("Please enter one of the listed options.")
