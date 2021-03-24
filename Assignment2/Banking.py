@@ -6,127 +6,103 @@ def is_an_int(n):
     except:
         return False
 while True:
-    main_menu = "Bank Menu:\nA: Savings\nB: Checking\nC: Exit"
-    print(main_menu)
-    main_choice = input("Which option would you like? ").upper().strip()
-    if main_choice[0] == "A":
+    bank_menu = "Bank Menu:\nA: Savings\nB: Checking\nC: Exit"
+    print(bank_menu)
+    bank_choice = input("Which option would you like? ").upper().strip()
+    if bank_choice[0] == "A":
          # Savings Menu
         while True:
-            menu2 = "Savings Menu\nChoose which triangle you would like to draw:\n1 - Right sided triangle\n2 - Isosceles triangle\nQ - Back to main menu"
-            print(menu2)
-            menu2_choice = input("Which option would you like? ").upper().strip()
-            # Right sided triangle
-            if menu2_choice[0] == "1":
+            savings_menu = "Savings Menu\nA: Deposit\nB: Withrawal\nC: Report\nD: Return to Bank Menu"
+            print(savings_menu)
+            savings_choice = input("Which option would you like? ").upper().strip()
+            # Deposit
+            if savings_choice[0] == "A":
                 while True:
-                    right_prompt = input("\nWhat size would you like your right sided triangle? ")
-                    if is_an_int(right_prompt) == False:
+                    deposit_prompt = input("\nHow much would you like to deposit? ")
+                    if is_an_int(deposit_prompt) == False:
                         print("Please enter an integer.")
                         continue
-                    right_size=abs(int(right_prompt))
-                    if right_size == 0:
-                        print("Please enter a non-zero integer.")
+                    deposit_size=int(deposit_prompt)
+                    if deposit_size <= 0:
+                        print("Please enter a postitive, non-zero integer.")
                         continue
-                    for x in range(1, right_size+1):
-                        print("#"*x)
+                    else:
+                        print("X was deposited successfully.")
                     break
-                try_again =input("I hope you like your triangle! Enter \"A\" if you would like to try again.\nEnter anything else to go back to the main menu. ").upper().strip()
-                if try_again == "A":
-                    continue
-                else:
-                    print()
-                    break
-            # Isosceles triangle
-            if menu2_choice[0] == "2":
+                print("Thank you for banking with us today. ")
+                break
+            # Withdraw
+            if savings_choice[0] == "B":
                 while True:
-                    iso_prompt=input("\nWhat size would you like your isosceles triangle? ")
-                    if is_an_int(iso_prompt) == False:
-                        print("Please enter an odd integer.")
+                    withdraw_prompt=input("\nHow much would you like to withdraw? ")
+                    if is_an_int(withdraw_prompt) == False:
+                        print("Please enter an integer.")
                         continue
-                    iso_size=abs(int(iso_prompt))
-                    if iso_size ==0:
-                        print("Please enter a non-zero odd integer.")
+                    withdraw_size=int(withdraw_prompt)
+                    if withdraw_size <=0:
+                        print("Please enter a positive, non-zero integer.")
                         continue
-                    if iso_size%2 == 0:
-                        print("Please enter an odd integer.")
-                        continue
-                    elif iso_size%2 ==1 and iso_size>0:
-                        for z in range(1,iso_size+1,2):
-                            print(int(((iso_size-z)/2))*" ", end = "")
-                            print(z*"#", end = "")
-                            print(int(((iso_size - z) / 2)) * " ")
+                    else:
+                        print("X successfully withdrawn")
                     break
-                try_again = input("I hope you like your triangle! Enter \"A\" if you would like to try again.\nEnter anything else to go back to the main menu. ").upper().strip()
-                if try_again[0] == "A":
-                    continue
-                else:
-                    print()
-                    break
-            if menu2_choice[0] == "Q":
-                print()
+                print("Thank you for banking with us today. ")
+                break
+            if savings_choice[0] == "C":
+                print("Report")
+                break
+            if savings_choice[0] == "D":
                 break
             else:
                 print("Please enter one of the listed options.")
         continue
-    elif main_choice[0] == "B":
-        print("\nGood choice!")
-        # menu 2
+    elif bank_choice[0] == "B":
+        # Checking Menu
         while True:
-            menu2 = "\nChoose which triangle you would like to draw:\n1 - Right sided triangle\n2 - Isosceles triangle\nQ - Back to main menu"
-            print(menu2)
-            menu2_choice = input("Which option would you like? ").upper().strip()
-            # Right sided triangle
-            if menu2_choice[0] == "1":
+            checking_menu = "Savings Menu\nA: Deposit\nB: Withrawal\nC: Report\nD: Return to Bank Menu"
+            print(savings_menu)
+            checking_choice = input("Which option would you like? ").upper().strip()
+            # Deposit
+            if checking_choice[0] == "A":
                 while True:
-                    right_prompt = input("\nWhat size would you like your right sided triangle? ")
-                    if is_an_int(right_prompt) == False:
+                    deposit_prompt = input("\nHow much would you like to deposit? ")
+                    if is_an_int(deposit_prompt) == False:
                         print("Please enter an integer.")
                         continue
-                    right_size=abs(int(right_prompt))
-                    if right_size == 0:
-                        print("Please enter a non-zero integer.")
+                    deposit_size = int(deposit_prompt)
+                    if deposit_size <= 0:
+                        print("Please enter a postitive, non-zero integer.")
                         continue
-                    for x in range(1, right_size+1):
-                        print("#"*x)
+                    else:
+                        print("X was deposited successfully.")
                     break
-                try_again =input("I hope you like your triangle! Enter \"A\" if you would like to try again.\nEnter anything else to go back to the main menu. ").upper().strip()
-                if try_again == "A":
-                    continue
-                else:
-                    print()
-                    break
-            # Isosceles triangle
-            if menu2_choice[0] == "2":
+                print("Thank you for banking with us today. ")
+                break
+            # Withdraw
+            if savings_choice[0] == "B":
                 while True:
-                    iso_prompt=input("\nWhat size would you like your isosceles triangle? ")
-                    if is_an_int(iso_prompt) == False:
-                        print("Please enter an odd integer.")
+                    withdraw_prompt = input("\nHow much would you like to withdraw? ")
+                    if is_an_int(withdraw_prompt) == False:
+                        print("Please enter an integer.")
                         continue
-                    iso_size=abs(int(iso_prompt))
-                    if iso_size ==0:
-                        print("Please enter a non-zero odd integer.")
+                    withdraw_size = int(withdraw_prompt)
+                    if withdraw_size <= 0:
+                        print("Please enter a positive, non-zero integer.")
                         continue
-                    if iso_size%2 == 0:
-                        print("Please enter an odd integer.")
-                        continue
-                    elif iso_size%2 ==1 and iso_size>0:
-                        for z in range(1,iso_size+1,2):
-                            print(int(((iso_size-z)/2))*" ", end = "")
-                            print(z*"#", end = "")
-                            print(int(((iso_size - z) / 2)) * " ")
+                    else:
+                        print("X successfully withdrawn")
                     break
-                try_again = input("I hope you like your triangle! Enter \"A\" if you would like to try again.\nEnter anything else to go back to the main menu. ").upper().strip()
-                if try_again[0] == "A":
-                    continue
-                else:
-                    print()
-                    break
-            if menu2_choice[0] == "Q":
-                print()
+                print("Thank you for banking with us today. ")
+                break
+            if savings_choice[0] == "C":
+                print("Report")
+                break
+            if savings_choice[0] == "D":
                 break
             else:
                 print("Please enter one of the listed options.")
         continue
-    if main_choice[0] == "Q":
+
+    if bank_choice[0] == "C":
         print("Goodbye!")
         break
     else:
