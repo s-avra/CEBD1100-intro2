@@ -37,7 +37,7 @@ class Account:
             self.account_status == True
 
     def doMonthlyReport(self):
-        if self.account_active() == True:
+        if self.account_status == True:
             print("Account Status: Active")
         else:
             print("Account Status: Inactive")

@@ -8,7 +8,6 @@ class SavingsAccount(Account):
             print("Cannot withdraw; Insufficent funds.")
         else:
             super().withdraw(amount)
-            super().account_active()
             print(format_currency(amount, 'USD', locale='en_US') + " was successfully withdrawn.")
     def deposit(self, amount):
         if self.balance + amount <=25:
@@ -20,13 +19,6 @@ class SavingsAccount(Account):
         print(format_currency(amount, 'USD', locale='en_US') + " was successfully deposited.")
     def service_charges(self,amount):
         super().service_charges(amount)
-
-    def doMonthlyReport(self):
-        if self.account_status == True:
-           print("Account Status: Active")
-        else:
-           print("Account Status: Inactive")
-        super().doMonthlyReport()
 
 
 
