@@ -23,7 +23,8 @@ while True:
         #service charge setup
         flat_fee = 5
         checkingaccount1.service_charges(flat_fee)
-        withdraw_fee = int(str(checkingaccount1.withdraw_count))*0.1
+        withdraw_charge = 0.1
+        withdraw_fee = int(str(checkingaccount1.withdraw_count))*withdraw_charge
         checkingaccount1.service_charges(withdraw_fee)
         break
 print("\nPlease create a savings account.\nMinimum deposit is $25.00, annual interest rate is 3%.")
@@ -39,6 +40,7 @@ while True:
         savingsacct1 = SavingsAccount(int(savings_acct_creation),0.03)
         #service charge setup
         svg_withdraw_num=int(savingsacct1.withdraw_count)
+            #svg_withdraw_num  minimum or $1 fee amount can be changed if bank policy changes
         if svg_withdraw_num > 4:
             savings_fee = (svg_withdraw_num-4)*1
         else:
@@ -105,7 +107,7 @@ while True:
     elif bank_choice[0] == "B":
         # Checking Menu
         while True:
-            checking_menu = "Savings Menu\nA: Deposit\nB: Withrawal\nC: Report\nD: Return to Bank Menu"
+            checking_menu = "Checking Menu\nA: Deposit\nB: Withrawal\nC: Report\nD: Return to Bank Menu"
             print(checking_menu)
             checking_choice = input("Which option would you like? ").upper().strip()
             #Checking Deposit
