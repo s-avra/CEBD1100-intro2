@@ -16,7 +16,7 @@ class CheckingAccount(Account):
 
 
 
-chkgacct1 = CheckingAccount(10,.04)
+chkgacct1 = CheckingAccount(10,.04, True)
 print(str(chkgacct1.balance) + " " + str(chkgacct1.interest_rate))
 chkgacct1.deposit(30)
 print(chkgacct1.balance_total())

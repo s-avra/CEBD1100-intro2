@@ -1,9 +1,7 @@
 from babel.numbers import format_currency
-
-
 class Account:
 
-    def __init__(self, balance, interest_rate):
+    def __init__(self, balance, interest_rate, account_status):
         self.balance = balance
         self.starting_balance = 0 + balance
         self.withdraw_count = 0
@@ -13,7 +11,7 @@ class Account:
         self.withdraw_total = 0
         self.interest_rate = interest_rate
         self.service_charge = 0
-        self.account_status = ""
+        self.account_status = account_status
 
     def calculate_interest(self):
         return (self.interest_rate/12)*self.balance
@@ -34,14 +32,18 @@ class Account:
     def service_charges(self, amount):
         self.service_charge += amount
         self.balance =self.balance - amount
+
     def account_active(self):
-        if self.balance < 25:
-           return self.account_status == "Inactive"
-        else:
-           return self.account_status == "Active"
+        if True:
+            return self.account_status() == True
+        elif False:
+            return self.account_status == False
 
     def doMonthlyReport(self):
-        print("Account Status: " + str(self.account_active()))
+        if self.account_status == True:
+            print("Account Status: Active")
+        elif self.account_status == False:
+            print("Account Status: Inactive")
         print("Starting Balance: " + format_currency(self.starting_balance,'USD',locale= 'en_US'))
         print("Total Deposits: " + format_currency(self.deposit_total,'USD', locale= 'en_US'))
         print("Total Number of Deposits: " + str(self.deposit_count))
