@@ -1,4 +1,3 @@
-from babel.numbers import format_currency
 from Assignment2.account_types.savings_acct import SavingsAccount
 from Assignment2.account_types.checking_acct import CheckingAccount
 
