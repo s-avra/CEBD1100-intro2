@@ -18,32 +18,14 @@ class SavingsAccount(Account):
             print(format_currency(amount, 'USD', locale='en_US') + " was successfully withdrawn.")
 
     def deposit(self, amount):
-        self.account_active()
         if self.balance + amount >= 25:
             super().deposit(amount)
             super().set_account_active()
         else:
             super().deposit(amount)
-            super().set_account_inactive()
         print(format_currency(amount, 'USD', locale='en_US') + " was successfully deposited.")
 
     def service_charges(self,amount):
         super().service_charges(amount)
 
-svgacct1=SavingsAccount(30,0.5)
-print(str(svgacct1.account_status))
-svgacct1.withdraw(15)
 
-print(str(svgacct1.account_status))
-
-svgacct1.withdraw(5)
-
-print(str(svgacct1.account_status))
-print(str(svgacct1.balance_total()))
-print(str(svgacct1.deposit_total))
-
-svgacct1.doMonthlyReport()
-print(str(svgacct1.starting_balance) + " " + str(svgacct1.deposit_count))
-svgacct1.deposit(80)
-print(str(svgacct1.balance))
-print(str(svgacct1.starting_balance))
