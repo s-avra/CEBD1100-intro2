@@ -60,3 +60,4 @@ class Account:
         self.withdraw_total = 0
         self.deposit_count = 0
         self.withdraw_count = 0
+        self.service_charge = 0
