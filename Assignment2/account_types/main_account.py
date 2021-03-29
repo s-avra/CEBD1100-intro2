@@ -1,7 +1,7 @@
 from babel.numbers import format_currency
 class Account:
 
-    def __init__(self, balance, interest_rate, account_status):
+    def __init__(self, balance, interest_rate):
         self.balance = balance
         self.starting_balance = 0 + balance
         self.withdraw_count = 0
@@ -11,7 +11,7 @@ class Account:
         self.withdraw_total = 0
         self.interest_rate = interest_rate
         self.service_charge = 0
-        self.account_status = account_status
+        self.account_status = True
 
     def calculate_interest(self):
         return (self.interest_rate/12)*self.balance
@@ -32,12 +32,11 @@ class Account:
     def service_charges(self, amount):
         self.service_charge += amount
         self.balance =self.balance - amount
+    def set_account_inactive(self):
+        self.account_status = False
+    def set_account_active(self):
+        self.account_status = True
 
-    def account_active(self):
-        if True:
-            return self.account_status() == True
-        elif False:
-            return self.account_status == False
 
     def doMonthlyReport(self):
         if self.account_status == True:
