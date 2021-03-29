@@ -3,7 +3,7 @@ from Assignment2.account_types.main_account import Account
 class CheckingAccount(Account):
     def withdraw(self,amount):
         if self.balance - amount <0:
-            print("Cannot withdraw; Insufficient funds")
+            print("Cannot withdraw; Insufficient funds. $15 Overdraft fee charged.")
             self.balance = self.balance-15
         else:
             super().withdraw(amount)

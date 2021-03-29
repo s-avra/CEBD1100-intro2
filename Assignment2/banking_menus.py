@@ -20,12 +20,7 @@ while True:
     else:
         checkingaccount1= CheckingAccount(int(checking_acct_creation),0)
         print("Your checking account has been successfully created.")
-        #service charge setup
-        flat_fee = 5
-        checkingaccount1.service_charges(flat_fee)
-        withdraw_charge = 0.1
-        withdraw_fee = int(str(checkingaccount1.withdraw_count))*withdraw_charge
-        checkingaccount1.service_charges(withdraw_fee)
+
         break
 print("\nPlease create a savings account.\nMinimum deposit is $25.00, annual interest rate is 3%.")
 while True:
@@ -37,15 +32,7 @@ while True:
         print("Minimum deposit of $25.00 required.")
         continue
     else:
-        savingsacct1 = SavingsAccount(int(savings_acct_creation),0.03)
-        #service charge setup
-        svg_withdraw_num=int(savingsacct1.withdraw_count)
-            #svg_withdraw_num  minimum or $1 fee amount can be changed if bank policy changes
-        if svg_withdraw_num > 4:
-            savings_fee = (svg_withdraw_num-4)*1
-        else:
-            savings_fee= 0
-        savingsacct1.service_charges(savings_fee)
+        savingsaccount1 = SavingsAccount(int(savings_acct_creation),0.03)
         print("Your savings account has been successfully created.")
         break
 print()
@@ -71,7 +58,7 @@ while True:
                         print("Please enter a postitive, non-zero integer.")
                         continue
                     else:
-                        savingsacct1.deposit(deposit_size)
+                        savingsaccount1.deposit(deposit_size)
                     break
                 print("Thank you for banking with us today.\n")
                 break
@@ -87,14 +74,22 @@ while True:
                         print("Please enter a positive, non-zero integer.")
                         continue
                     else:
-                        savingsacct1.withdraw(withdraw_size)
+                        savingsaccount1.withdraw(withdraw_size)
                     break
                 print("Thank you for banking with us today.\n")
                 break
             #Savings Report
             if savings_choice[0] == "C":
+                # service charge setup
+                svg_withdraw_num = int(savingsaccount1.withdraw_count)
+                # svg_withdraw_num  minimum or $1 fee amount can be changed if bank policy changes
+                if svg_withdraw_num > 4:
+                    savings_fee = (svg_withdraw_num - 4) * 1
+                else:
+                    savings_fee = 0
+                savingsaccount1.service_charges(savings_fee)
                 print()
-                savingsacct1.doMonthlyReport()
+                savingsaccount1.doMonthlyReport()
                 print("Thank you for banking with us today.\n")
                 break
             #Back to Main
@@ -126,7 +121,7 @@ while True:
                     break
                 print("Thank you for banking with us today.\n")
                 break
-            # Withdraw
+            #Checking Withdraw
             if checking_choice[0] == "B":
                 while True:
                     withdraw_prompt = input("\nHow much would you like to withdraw? ")
@@ -144,6 +139,13 @@ while True:
                 break
             #Checking Report
             if checking_choice[0] == "C":
+                # service charge setup
+                flat_fee = 5
+                checkingaccount1.service_charges(flat_fee)
+                withdraw_charge = 0.1
+                withdraw_fee = int(str(checkingaccount1.withdraw_count)) * withdraw_charge
+                checkingaccount1.service_charges(withdraw_fee)
+                #checking report print
                 print()
                 checkingaccount1.doMonthlyReport()
                 print("Thank you for banking with us today.\n")

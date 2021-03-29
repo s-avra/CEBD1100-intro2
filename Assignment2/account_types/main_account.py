@@ -14,7 +14,10 @@ class Account:
         self.account_status = True
 
     def calculate_interest(self):
-        return (self.interest_rate/12)*self.balance
+        if self.balance < 0:
+            return 0
+        else:
+            return (self.interest_rate/12)*self.balance
 
     def withdraw(self, amount):
         self.balance = self.balance - amount
