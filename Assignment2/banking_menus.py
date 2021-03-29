@@ -43,7 +43,7 @@ while True:
     if bank_choice[0] == "A":
          # Savings Menu
         while True:
-            savings_menu = "Savings Menu\nA: Deposit\nB: Withrawal\nC: Report\nD: Return to Bank Menu"
+            savings_menu = "\nSavings Menu\nA: Deposit\nB: Withrawal\nC: Report\nD: Return to Bank Menu"
             print(savings_menu)
             savings_choice = input("Which option would you like? ").upper().strip()
             # Savings Deposit
@@ -102,7 +102,7 @@ while True:
     elif bank_choice[0] == "B":
         # Checking Menu
         while True:
-            checking_menu = "Checking Menu\nA: Deposit\nB: Withrawal\nC: Report\nD: Return to Bank Menu"
+            checking_menu = "\nChecking Menu\nA: Deposit\nB: Withrawal\nC: Report\nD: Return to Bank Menu"
             print(checking_menu)
             checking_choice = input("Which option would you like? ").upper().strip()
             #Checking Deposit
